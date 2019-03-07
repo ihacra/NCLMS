@@ -1,4 +1,4 @@
-package com.hacra.nclms.modules.sysmenu.entity;
+package com.hacra.nclms.modules.menu.entity;
 
 import com.hacra.nclms.common.base.BaseEntity;
 import org.springframework.stereotype.Component;
@@ -8,33 +8,32 @@ import org.springframework.stereotype.Component;
  *
  * @author Hacra
  * @version 1.0
- * @date 2019-03-02 16:38
+ * @date 2019-03-06 17:50
  */
-@Component
-public class SysMenu extends BaseEntity<SysMenu> {
+public class Menu extends BaseEntity<Menu> {
 
     private static final long serialVersionUID = 1L;
-    private SysMenu parent;
+    private Menu parent;
     private String name;
     private int sort;
     private String href;
     private char isShow;
 
-    public SysMenu() {
+    public Menu() {
         super();
         this.sort = 10;
         this.isShow = '1';
     }
 
-    public SysMenu(int id) {
+    public Menu(int id) {
         super(id);
     }
 
-    public SysMenu getParent() {
+    public Menu getParent() {
         return parent;
     }
 
-    public void setParent(SysMenu parent) {
+    public void setParent(Menu parent) {
         this.parent = parent;
     }
 

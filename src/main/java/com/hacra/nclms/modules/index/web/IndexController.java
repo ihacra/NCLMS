@@ -1,4 +1,4 @@
-package com.hacra.nclms.modules.sysindex.web;
+package com.hacra.nclms.modules.index.web;
 
 import com.hacra.nclms.common.base.BaseController;
 import org.springframework.stereotype.Controller;
@@ -16,8 +16,8 @@ import javax.servlet.http.HttpServletResponse;
  * @date 2019-03-03 1:50
  */
 @Controller
-@RequestMapping(value = "${default.prefix}/sysindex")
-public class SysIndexController extends BaseController {
+@RequestMapping(value = "${default.prefix}/index")
+public class IndexController extends BaseController {
 
     /**
      * 首页
@@ -26,6 +26,6 @@ public class SysIndexController extends BaseController {
      */
     @RequestMapping(value = "index")
     public String index(HttpServletRequest request, HttpServletResponse response, Model model) {
-        return "modules/sysindex/sysIndexIndex";
+        return "modules/index/indexIndex";
     }
 }

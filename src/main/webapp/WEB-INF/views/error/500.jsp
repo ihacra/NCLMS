@@ -21,7 +21,7 @@
             <span>0</span>
             <span>5</span>
         </p>
-        <p style="margin-top: -30px">内部服务器错误(´･ω･`)</p>
+        <p style="margin-top: -30px">服务器内部错误(´･ω･`)</p>
     </div>
 </body>
 </html>

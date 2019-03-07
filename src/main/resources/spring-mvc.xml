@@ -14,7 +14,7 @@
     <context:property-placeholder ignore-unresolvable="true" location="classpath:nclms.properties" />
 
     <!-- 使用Annotation自动注册Bean,只扫描@Controller -->
-    <context:component-scan base-package="com.hacra.nclms" use-default-filters="false">
+    <context:component-scan base-package="com.hacra.nclms.modules" use-default-filters="false">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
 
@@ -31,5 +31,5 @@
         <property name="suffix" value="${web.view.suffix}"/>
     </bean>
 
-    <mvc:view-controller path="/" view-name="redirect:${default.prefix}/sysindex/index" />
+    <mvc:view-controller path="/" view-name="redirect:${default.prefix}/index/index" />
 </beans>

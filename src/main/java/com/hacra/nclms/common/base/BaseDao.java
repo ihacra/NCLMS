@@ -9,7 +9,7 @@ import java.util.List;
  * @version 1.0
  * @date 2019-03-02 18:10
  */
-public interface BaseDao<T> {
+public interface BaseDao<T extends BaseEntity<T>> {
 
     /**
      * 获取单条数据

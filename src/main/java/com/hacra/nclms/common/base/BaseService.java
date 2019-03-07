@@ -1,6 +1,7 @@
 package com.hacra.nclms.common.base;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.List;
 
 /**
@@ -16,7 +17,7 @@ public abstract class BaseService<D extends BaseDao<T>, T extends BaseEntity<T>>
      * 持久层对象
      * @date 2019-03-02 18:32
      */
-    @Resource
+    @Autowired
     protected D dao;
 
     /**
