@@ -11,11 +11,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><sitemesh:write property='title'/></title>
     <%@include file="/WEB-INF/views/include/head.jsp" %>
+    <link rel="stylesheet" type="text/css" href="${path}/static/custom/custom_sys-1.0.0.css"/>
+    <script type="text/javascript" src="${path}/static/custom/custom_sys-1.0.0.js"></script>
     <sitemesh:write property='head'/>
 </head>
 <body>
 <%@ include file="/WEB-INF/views/include/manage_top.jsp" %>
-<div id="main_fill" style="margin-top: 85px">
+<div id="main_fill" class="main">
     <sitemesh:write property='body'/>
 </div>
 <%@ include file="/WEB-INF/views/include/manage_bottom.jsp" %>
