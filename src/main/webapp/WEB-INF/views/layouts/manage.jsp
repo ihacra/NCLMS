@@ -15,7 +15,7 @@
 </head>
 <body>
 <%@ include file="/WEB-INF/views/include/manage_top.jsp" %>
-<div id="main_fill" style="margin: 85px 0 10px 0">
+<div id="main_fill" style="margin-top: 85px">
     <sitemesh:write property='body'/>
 </div>
 <%@ include file="/WEB-INF/views/include/manage_bottom.jsp" %>
