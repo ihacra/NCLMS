@@ -14,7 +14,7 @@ function showInfo() {
 
 // 页面内容高度填充（不足一屏填充为一屏）
 function mainFill() {
-    var offset = $(window).height() - $(document.body).outerHeight(true);
+    var offset = $(window).height() - $(document.body).outerHeight(true) - 50;
     if (offset > 0) {
         var height = $("#main_fill").height() + offset;
         $("#main_fill").css("height", height + "px");
@@ -23,9 +23,9 @@ function mainFill() {
 
 // 鼠标悬浮在菜单上时显示下拉菜单
 function dropdownMenu() {
-    $("span.link").hover(function () {
-        $(this).children("div.cont").css("display", "block");
+    $(".link").hover(function () {
+        $(this).children(".cont").css("display", "block");
     }, function () {
-        $(this).children("div.cont").css("display", "none");
+        $(this).children(".cont").css("display", "none");
     });
 }

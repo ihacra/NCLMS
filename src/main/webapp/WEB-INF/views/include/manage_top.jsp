@@ -6,18 +6,18 @@
         </div>
         <div class="con2">
             <span class="link">
-                <a href="${ctx}/library/list" class="link" style="margin: 0">第三方库</a>
+                <a href="${ctx}/library/list" class="linka">第三方库</a>
                 <div class="cont"></div>
             </span>
             <span class="link">
-                系统管理
+                <span class="linka">系统管理</span>
                 <div class="cont">
                     <a href="${ctx}/" class="linka">代码生成</a>
                 </div>
             </span>
         </div>
         <div class="con3">
-            全国统一客服热线<br/>1234-567-890
+            1234-567-890
         </div>
     </div>
 </div>

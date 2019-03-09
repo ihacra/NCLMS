@@ -5,34 +5,39 @@ body {
     color: #333333;
     background-color: #ffffff;
 }
+a {
+    color: #333333;
+}
 .navbar {
     margin: 0;
     padding: 0;
     display: block;
-    height: 75px;
+    position: fixed;
+    height: 50px;
     width: 100%;
+    top: 0;
+    left: 0;
     z-index: 100;
-    position: relative;
-    background-color: #24292e;
+    background-color: #ffffff;
+    border-bottom: 1px solid #f0f0f0;
 }
 .container {
     width: 1200px;
     margin: 0 auto;
     padding: 0;
-    height: 75px;
     zoom: 1;
     display: block;
 }
 .con1 {
     float: left;
+    margin: 0 10px;
 }
 .con1 a {
     font-size: 23px;
     font-weight: 600;
-    margin: 0 25px;
-    height: 75px;
-    line-height: 76px;
-    color: #ffffff;
+    color: #ea6f5a;
+    height: 50px;
+    line-height: 50px;
     display: inline-block;
     text-decoration: none;
     cursor: pointer;
@@ -40,33 +45,48 @@ body {
 }
 .con2 {
     float: left;
-    margin: 0 auto;
 }
 .link {
     position: relative;
     font-size: 16px;
-    font-weight: 400;
-    margin: 0 25px;
-    height: 71px;
-    line-height: 76px;
-    color: #ffffff;
+    height: 50px;
     display: inline-block;
     text-decoration: none;
     cursor: pointer;
+    float: left;
 }
-.link:hover {
-    border-bottom: 4px solid #0293ed;
+.linka {
+    line-height: 50px;
+    padding: 0 15px;
+    text-decoration: none;
+}
+.linka:hover {
+    color: #ea6f5a;
+}
+.cont {
+    position: absolute;
+    display: none;
+    padding: 5px 0;
+    background-color: #ffffff;
+}
+.cont .linka {
+    height: 38px;
+    line-height: 38px;
 }
 .con3 {
     float: right;
-    width: 200px;
-    font-size: 16px;
-    font-weight: 400;
-    color: #ffffff;
+    font-size: 23px;
+    font-weight: 600;
     text-align: center;
-    height: 75px;
-    line-height: 24px;
-    margin-top: 16px;
+    color: #ea6f5a;
+    height: 50px;
+    line-height: 50px;
+}
+.main {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
 }
 .footer {
     width: 100%;
@@ -166,6 +186,9 @@ body {
     text-align: center;
     font-size: 12px;
 }
+.fixedWid a {
+    color: #a6a7ab;
+}
 .error {
     margin-top: 120px;
 }
@@ -222,32 +245,4 @@ body {
     letter-spacing: 1px;
     line-height: 2em;
     margin-top: -50px;
-}
-.cont {
-    width: inherit;
-    white-space: nowrap;
-    padding-top: 15px;
-    padding-bottom: 16px;
-    position: absolute;
-    z-index: -1;
-    display: none;
-    margin-left: -35px;
-    margin-top: -1px;
-    background-color: #24292e;
-}
-.linka {
-    line-height: 35px;
-    color: #ffffff;
-    padding: 0 35px;
-    outline: none;
-    display: block;
-    text-decoration: none;
-}
-.linka:hover {
-    color: #0293ed;
-}
-.main {
-    width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
 }

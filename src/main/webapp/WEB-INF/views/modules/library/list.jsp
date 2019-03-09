@@ -5,24 +5,24 @@
     <title>第三方库</title>
 </head>
 <body>
-    <div class="title">
-        <span>项目中使用到的第三方库</span>
-    </div>
-    <table>
+<div class="title">
+    <h1>项目中使用到的第三方库</h1>
+</div>
+<table>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>version</th>
+        <th>url</th>
+    </tr>
+    <c:forEach items="${list}" var="library" varStatus="vs">
         <tr>
-            <th>id</th>
-            <th>name</th>
-            <th>version</th>
-            <th>url</th>
+            <td>${library.id}</td>
+            <td>${library.name}</td>
+            <td>${library.version}</td>
+            <td>${library.url}</td>
         </tr>
-        <c:forEach items="${list}" var="library" varStatus="vs">
-            <tr>
-                <td>${library.id}</td>
-                <td>${library.name}</td>
-                <td>${library.version}</td>
-                <td>${library.url}</td>
-            </tr>
-        </c:forEach>
-    </table>
+    </c:forEach>
+</table>
 </body>
 </html>
