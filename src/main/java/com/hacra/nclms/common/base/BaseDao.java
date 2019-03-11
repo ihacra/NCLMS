@@ -72,5 +72,5 @@ public interface BaseDao<T extends BaseEntity<T>> {
      * @param entity entity
      * @return int
      */
-    int getNextId(T entity);
+    String getNextId(T entity);
 }

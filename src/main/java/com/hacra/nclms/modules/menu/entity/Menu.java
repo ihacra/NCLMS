@@ -25,7 +25,7 @@ public class Menu extends BaseEntity<Menu> {
         this.isShow = '1';
     }
 
-    public Menu(int id) {
+    public Menu(String id) {
         super(id);
     }
 

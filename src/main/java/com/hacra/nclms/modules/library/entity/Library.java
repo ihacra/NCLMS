@@ -3,6 +3,8 @@ package com.hacra.nclms.modules.library.entity;
 import com.hacra.nclms.common.base.BaseEntity;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 /**
  * 第三方库
  *
@@ -16,12 +18,13 @@ public class Library extends BaseEntity<Library> {
     private String name;
     private String version;
     private String url;
+    private List<Library> libraryList;
 
     public Library() {
         super();
     }
 
-    public Library(int id) {
+    public Library(String id) {
         super(id);
     }
 
@@ -47,5 +50,24 @@ public class Library extends BaseEntity<Library> {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public List<Library> getLibraryList() {
+        return libraryList;
+    }
+
+    public void setLibraryList(List<Library> libraryList) {
+        this.libraryList = libraryList;
+    }
+
+    @Override
+    public String toString() {
+        return "Library{" +
+                "name='" + name + '\'' +
+                ", version='" + version + '\'' +
+                ", url='" + url + '\'' +
+                ", id=" + id +
+                ", remarks='" + remarks + '\'' +
+                '}';
     }
 }

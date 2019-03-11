@@ -2,6 +2,7 @@ package com.hacra.nclms.common.base;
 
 import com.hacra.nclms.common.config.Global;
 import com.hacra.nclms.common.utils.DateUtils;
+import com.hacra.nclms.common.utils.StringUtils;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -17,12 +18,12 @@ public abstract class BaseEntity<T> implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    protected int id;
+    private boolean newRecord = false;
+    protected String id;
     protected String remarks;
     protected Date createDate;
     protected Date updateDate;
     protected String delFlag;
-
     public static final String DEL_FLAG_NORMAL = "0";
     public static final String DEL_FLAG_DELETE = "1";
 
@@ -30,15 +31,15 @@ public abstract class BaseEntity<T> implements Serializable {
         this.delFlag = DEL_FLAG_NORMAL;
     }
 
-    public BaseEntity(int id) {
+    public BaseEntity(String id) {
         this.id = id;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -74,12 +75,20 @@ public abstract class BaseEntity<T> implements Serializable {
         this.delFlag = delFlag;
     }
 
+    public boolean isNewRecord() {
+        return newRecord || StringUtils.isBlank(this.id);
+    }
+
+    public void setNewRecord(boolean newRecord) {
+        this.newRecord = newRecord;
+    }
+
     /**
      * 插入之前执行方法，需要手动调用
      * @author Hacra
      * @date 2019-03-02 17:54
      **/
-    public void preInsert(int id) {
+    public void preInsert(String id) {
         this.id = id;
         this.createDate = DateUtils.newDate();
         this.updateDate = this.createDate;
@@ -116,7 +125,7 @@ public abstract class BaseEntity<T> implements Serializable {
             return false;
         }
         BaseEntity that = (BaseEntity)obj;
-        return this.getId() == that.getId();
+        return this.getId().equals(that.getId());
     }
 
     @Override

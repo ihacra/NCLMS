@@ -2,7 +2,7 @@
 <div class="navbar">
     <div class="container">
         <div class="con1">
-            <a href="${path}/">系统设置</a>
+            <a href="${path}/">NCLMS</a>
         </div>
         <div class="con2">
             <span class="link">

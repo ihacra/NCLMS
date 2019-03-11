@@ -61,7 +61,7 @@ public abstract class BaseService<D extends BaseDao<T>, T extends BaseEntity<T>>
      */
     @Deprecated
     public void insert(T entity) {
-        int id = dao.getNextId(entity);
+        String id = dao.getNextId(entity);
         entity.preInsert(id);
         dao.insert(entity);
     }
@@ -85,7 +85,7 @@ public abstract class BaseService<D extends BaseDao<T>, T extends BaseEntity<T>>
      * @param entity entity
      */
     public void save(T entity) {
-        if (entity.getId() <= 0) {
+        if (entity.isNewRecord()) {
             entity.preInsert(dao.getNextId(entity));
             dao.insert(entity);
         } else {
@@ -101,6 +101,7 @@ public abstract class BaseService<D extends BaseDao<T>, T extends BaseEntity<T>>
      * @param entity entity
      */
     public void delete(T entity) {
+        entity.preUpdate();
         dao.delete(entity);
     }
 }

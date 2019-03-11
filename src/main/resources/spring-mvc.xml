@@ -34,5 +34,5 @@
         <property name="suffix" value="${web.view.suffix}"/>
     </bean>
 
-    <mvc:view-controller path="/" view-name="redirect:${default.prefix}/index/index" />
+    <mvc:view-controller path="/" view-name="redirect:${defaultPath}/index/index" />
 </beans>

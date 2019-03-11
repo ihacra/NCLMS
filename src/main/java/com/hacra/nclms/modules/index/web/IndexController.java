@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  * @date 2019-03-03 1:50
  */
 @Controller
-@RequestMapping(value = "${default.prefix}/index")
+@RequestMapping(value = "${defaultPath}/index")
 public class IndexController extends BaseController {
 
     /**

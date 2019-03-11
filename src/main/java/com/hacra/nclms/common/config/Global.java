@@ -9,8 +9,8 @@ package com.hacra.nclms.common.config;
  */
 public class Global {
 
-    private static final String DEFAULT_PREFIX = "/cms";
-    private static final String MANAGE_PREFIX = "/sys";
+    private static final String DEFAULT_PATH = "/cms";
+    private static final String MANAGE_PATH = "/sys";
     private static Global global = new Global();
 
     /**
@@ -28,8 +28,8 @@ public class Global {
      * @author Hacra
      * @date 2019-03-04 19:24
      */
-    public static String getDefaultPrefix() {
-        return DEFAULT_PREFIX;
+    public static String getDefaultPath() {
+        return DEFAULT_PATH;
     }
 
     /**
@@ -37,7 +37,7 @@ public class Global {
      * @author Hacra
      * @date 2019-03-04 19:24
      */
-    public static String getManagePrefix() {
-        return MANAGE_PREFIX;
+    public static String getManagePath() {
+        return MANAGE_PATH;
     }
 }

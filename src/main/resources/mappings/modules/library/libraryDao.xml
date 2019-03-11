@@ -20,7 +20,7 @@
     <select id="get" resultType="Library">
         SELECT
             <include refid="libraryColumns"/>
-        FROM library a
+        FROM sys_library a
         <include refid="libraryJoins"/>
         WHERE a.id = #{id}
     </select>
@@ -28,14 +28,14 @@
     <select id="getAllList" resultType="Library">
         SELECT
             <include refid="libraryColumns"/>
-        FROM library a
+        FROM sys_library a
         <include refid="libraryJoins"/>
         WHERE a.del_flag = #{DEL_FLAG_NORMAL}
         ORDER BY a.update_date DESC
     </select>
 
     <insert id="insert">
-        INSERT INTO library (
+        INSERT INTO sys_library (
             id,
             name,
             version,
@@ -57,7 +57,7 @@
     </insert>
 
     <update id="update">
-        UPDATE library SET
+        UPDATE sys_library SET
             name = #{name},
             version = #{version},
             url = #{url},
@@ -69,15 +69,15 @@
     </update>
 
     <delete id="delete">
-        UPDATE library SET
+        UPDATE sys_library SET
             del_flag = #{DEL_FLAG_DELETE},
             update_date = #{updateDate}
         WHERE id = #{id}
     </delete>
 
-    <select id="getNextId" resultType="int">
+    <select id="getNextId" resultType="String">
         SELECT
-            nextval("library")
+            nextval("sys_library")
         FROM dual
     </select>
 </mapper>

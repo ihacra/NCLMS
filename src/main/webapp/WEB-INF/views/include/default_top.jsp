@@ -2,7 +2,7 @@
 <div class="navbar">
     <div class="container">
         <div class="con1">
-            <a href="${path}${fns:getManagePrefix()}/library/list">NCLMS</a>
+            <a href="${path}${fns:getManagePath()}/library/list">NCLMS</a>
         </div>
         <div class="con2">
             <span class="link">

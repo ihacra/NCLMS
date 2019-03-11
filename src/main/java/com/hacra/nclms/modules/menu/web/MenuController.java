@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  * @date 2019-03-06 17:56
  */
 @Controller
-@RequestMapping(value = "${manage.prefix}/menu")
+@RequestMapping(value = "${managePath}/menu")
 public class MenuController extends BaseController {
 
     @Autowired

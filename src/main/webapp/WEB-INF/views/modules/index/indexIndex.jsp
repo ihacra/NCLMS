@@ -5,7 +5,7 @@
     <title>首页</title>
 </head>
 <body>
-    <a href="${path}${fns:getManagePrefix()}/sysmenu/list">menu</a>
-    <a href="${path}${fns:getManagePrefix()}/sysmenu/form">form</a>
+    <a href="${path}${fns:getManagePath()}/sysmenu/list">menu</a>
+    <a href="${path}${fns:getManagePath()}/sysmenu/form">form</a>
 </body>
 </html>
