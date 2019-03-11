@@ -49,7 +49,8 @@ public class LibraryController extends BaseController {
      */
     @RequestMapping(value = {"list", ""})
     public String list(Library library, HttpServletRequest request, HttpServletResponse response, Model model) {
-        model.addAttribute("libraryList", libraryService.getAllList(library));
+        library.setLibraryList(libraryService.getAllList(library));
+        model.addAttribute("library", library);
         return "modules/library/libraryList";
     }
 

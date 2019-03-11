@@ -66,8 +66,7 @@ public class Library extends BaseEntity<Library> {
                 "name='" + name + '\'' +
                 ", version='" + version + '\'' +
                 ", url='" + url + '\'' +
-                ", id=" + id +
-                ", remarks='" + remarks + '\'' +
+                ", libraryList=" + libraryList +
                 '}';
     }
 }

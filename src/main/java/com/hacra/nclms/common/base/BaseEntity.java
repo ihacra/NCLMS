@@ -14,16 +14,16 @@ import java.util.Date;
  * @version 1.0
  * @date 2019-03-02 16:49
  */
-public abstract class BaseEntity<T> implements Serializable {
+public abstract class BaseEntity<T> extends MapperEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     private boolean newRecord = false;
-    protected String id;
-    protected String remarks;
-    protected Date createDate;
-    protected Date updateDate;
-    protected String delFlag;
+    private String id;
+    private String remarks;
+    private Date createDate;
+    private Date updateDate;
+    private String delFlag;
     public static final String DEL_FLAG_NORMAL = "0";
     public static final String DEL_FLAG_DELETE = "1";
 

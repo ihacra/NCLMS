@@ -91,3 +91,6 @@ input[type="text"] {
 .none {
     display: none;
 }
+.sort {
+    cursor: pointer;
+}

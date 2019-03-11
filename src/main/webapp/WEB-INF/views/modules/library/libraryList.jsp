@@ -18,6 +18,7 @@
     </script>
 </head>
 <body>
+<sys:orderBy id="orderBy" value="${library.orderBy}"/>
 <div class="top">
     <span class="title">第三方库列表</span>
     <div style="float:right">
@@ -29,15 +30,15 @@
     <thead>
     <tr>
         <th>序号</th>
-        <th>名称</th>
-        <th>版本号</th>
-        <th>官网链接</th>
-        <th>备注</th>
+        <th class="sort" data-sort="name">名称</th>
+        <th class="sort" data-sort="version">版本号</th>
+        <th class="sort" data-sort="url">官网链接</th>
+        <th class="sort" data-sort="remarks">备注</th>
         <th class="none">操作</th>
     </tr>
     </thead>
     <tbody>
-    <c:forEach items="${libraryList}" var="library" varStatus="vs">
+    <c:forEach items="${library.libraryList}" var="library" varStatus="vs">
         <tr>
             <td>${vs.count}</td>
             <td>${library.name}</td>

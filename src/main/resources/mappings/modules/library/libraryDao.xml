@@ -31,7 +31,14 @@
         FROM sys_library a
         <include refid="libraryJoins"/>
         WHERE a.del_flag = #{DEL_FLAG_NORMAL}
-        ORDER BY a.update_date DESC
+        <choose>
+            <when test="orderBy != null and orderBy != ''">
+                ORDER BY ${orderBy}
+            </when>
+            <otherwise>
+                ORDER BY a.update_date DESC
+            </otherwise>
+        </choose>
     </select>
 
     <insert id="insert">
