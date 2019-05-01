@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hacra.nclms.modules.franchise.dao.FranchiseDao">
+
+    <sql id="franchiseColumns">
+        a.id AS "id",
+        a.name AS "name",
+        a.address AS "address",
+        a.mobile AS "mobile",
+        a.experience AS "experience",
+        a.amount AS "amount",
+        a.area AS "area",
+        a.customer AS "customer",
+        a.quantity AS "quantity",
+        a.create_date AS "createDate",
+        a.update_date AS "updateDate",
+        a.remarks AS "remarks",
+        a.del_flag AS "delFlag"
+    </sql>
+
+    <sql id="franchiseJoins">
+
+    </sql>
+
+    <select id="get" resultType="Franchise">
+        SELECT
+        <include refid="franchiseColumns"/>
+        FROM franchise a
+        <include refid="franchiseJoins"/>
+        WHERE a.id = #{id}
+    </select>
+
+    <select id="getAllList" resultType="Franchise">
+        SELECT
+        <include refid="franchiseColumns"/>
+        FROM franchise a
+        <include refid="franchiseJoins"/>
+        WHERE a.del_flag = #{DEL_FLAG_NORMAL}
+        <choose>
+            <when test="orderBy != null and orderBy != ''">
+                ORDER BY ${orderBy}
+            </when>
+            <otherwise>
+                ORDER BY a.update_date DESC
+            </otherwise>
+        </choose>
+    </select>
+
+    <insert id="insert">
+        INSERT INTO franchise (
+            id,
+            name,
+            address,
+            mobile,
+            experience,
+            amount,
+            area,
+            customer,
+            quantity,
+            create_date,
+            update_date,
+            remarks,
+            del_flag
+        ) VALUES (
+            #{id},
+            #{name},
+            #{address},
+            #{mobile},
+            #{experience},
+            #{amount},
+            #{area},
+            #{customer},
+            #{quantity},
+            #{createDate},
+            #{updateDate},
+            #{remarks},
+            #{delFlag}
+        )
+    </insert>
+
+    <update id="update">
+        UPDATE franchise SET
+            name = #{name},
+            address = #{address},
+            mobile = #{mobile},
+            experience = #{experience},
+            amount = #{amount},
+            area = #{area},
+            customer = #{customer},
+            quantity = #{quantity},
+            create_date = #{createDate},
+            update_date = #{updateDate},
+            remarks = #{remarks},
+            del_flag = #{delFlag}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete">
+        UPDATE franchise SET
+            del_flag = #{DEL_FLAG_DELETE},
+            update_date = #{updateDate}
+        WHERE id = #{id}
+    </delete>
+
+    <select id="getNextId" resultType="String">
+        SELECT
+            nextval("franchise")
+        FROM dual
+    </select>
+</mapper>

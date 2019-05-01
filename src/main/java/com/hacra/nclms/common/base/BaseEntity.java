@@ -14,7 +14,7 @@ import java.util.Date;
  * @version 1.0
  * @date 2019-03-02 16:49
  */
-public abstract class BaseEntity<T> extends MapperEntity implements Serializable {
+public abstract class BaseEntity<T> extends DaoEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hacra.nclms.modules.express.dao.ExpressDao">
+
+    <sql id="expressColumns">
+        a.id AS "id",
+        a.sender_name AS "senderName",
+        a.sender_address AS "senderAddress",
+        a.sender_mobile AS "senderMobile",
+        a.consignee_name AS "consigneeName",
+        a.consignee_address AS "consigneeAddress",
+        a.consignee_mobile AS "consigneeMobile",
+        a.goods_name AS "goodsName",
+        a.goods_remarks AS "goodsRemarks",
+        a.goods_weight AS "goodsWeight",
+        a.code AS "code",
+        a.status AS "status",
+        a.order_time AS "orderTime",
+        a.price AS "price",
+        a.create_date AS "createDate",
+        a.update_date AS "updateDate",
+        a.remarks AS "remarks",
+        a.del_flag AS "delFlag"
+    </sql>
+
+    <sql id="expressJoins">
+
+    </sql>
+
+    <select id="get" resultType="Express">
+        SELECT
+        <include refid="expressColumns"/>
+        FROM express a
+        <include refid="expressJoins"/>
+        WHERE 1 = 1
+        <if test="id != null and id != ''">
+            AND a.id = #{id}
+        </if>
+        <if test="code != null and code != ''">
+            AND a.code = #{code}
+        </if>
+    </select>
+
+    <select id="getAllList" resultType="Express">
+        SELECT
+        <include refid="expressColumns"/>
+        FROM express a
+        <include refid="expressJoins"/>
+        WHERE a.del_flag = #{DEL_FLAG_NORMAL}
+        <choose>
+            <when test="orderBy != null and orderBy != ''">
+                ORDER BY ${orderBy}
+            </when>
+            <otherwise>
+                ORDER BY a.update_date DESC
+            </otherwise>
+        </choose>
+    </select>
+
+    <insert id="insert">
+        INSERT INTO express (
+            id,
+            sender_name,
+            sender_address,
+            sender_mobile,
+            consignee_name,
+            consignee_address,
+            consignee_mobile,
+            goods_name,
+            goods_remarks,
+            goods_weight,
+            code,
+            status,
+            order_time,
+            price,
+            create_date,
+            update_date,
+            remarks,
+            del_flag
+        ) VALUES (
+            #{id},
+            #{senderName},
+            #{senderAddress},
+            #{senderMobile},
+            #{consigneeName},
+            #{consigneeAddress},
+            #{consigneeMobile},
+            #{goodsName},
+            #{goodsRemarks},
+            #{goodsWeight},
+            #{code},
+            #{status},
+            #{orderTime},
+            #{price},
+            #{createDate},
+            #{updateDate},
+            #{remarks},
+            #{delFlag}
+        )
+    </insert>
+
+    <update id="update">
+        UPDATE express SET
+            sender_name = #{senderName},
+            sender_address = #{senderAddress},
+            sender_mobile = #{senderMobile},
+            consignee_name = #{consigneeName},
+            consignee_address = #{consigneeAddress},
+            consignee_mobile = #{consigneeMobile},
+            goods_name = #{goodsName},
+            goods_remarks = #{goodsRemarks},
+            goods_weight = #{goodsWeight},
+            code = #{code},
+            status = #{status},
+            order_time = #{orderTime},
+            price = #{price},
+            create_date = #{createDate},
+            update_date = #{updateDate},
+            remarks = #{remarks},
+            del_flag = #{delFlag}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete">
+        UPDATE express SET
+            del_flag = #{DEL_FLAG_DELETE},
+            update_date = #{updateDate}
+        WHERE id = #{id}
+    </delete>
+
+    <select id="getNextId" resultType="String">
+        SELECT
+            nextval("express")
+        FROM dual
+    </select>
+</mapper>

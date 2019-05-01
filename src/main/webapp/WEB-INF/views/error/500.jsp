@@ -1,10 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="path" value="${pageContext.request.contextPath}"/>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
     <title>500</title>
-    <link rel="stylesheet" type="text/css" href="${path}/static/custom/custom-1.0.0.css"/>
+    <link rel="stylesheet" type="text/css" href="${ctx}/static/custom/custom-1.0.0.css"/>
     <style type="text/css">
         body {
             background-color: #ECECEC;

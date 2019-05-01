@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  * @date 2019-03-03 1:50
  */
 @Controller
-@RequestMapping(value = "${defaultPath}/index")
+@RequestMapping(value = "/index")
 public class IndexController extends BaseController {
 
     /**
@@ -26,6 +26,6 @@ public class IndexController extends BaseController {
      */
     @RequestMapping(value = "index")
     public String index(HttpServletRequest request, HttpServletResponse response, Model model) {
-        return "modules/index/indexIndex";
+        return "modules/index/index";
     }
 }

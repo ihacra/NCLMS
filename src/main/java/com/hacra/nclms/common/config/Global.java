@@ -9,8 +9,6 @@ package com.hacra.nclms.common.config;
  */
 public class Global {
 
-    private static final String DEFAULT_PATH = "/cms";
-    private static final String MANAGE_PATH = "/sys";
     private static Global global = new Global();
 
     /**
@@ -21,23 +19,5 @@ public class Global {
      **/
     public static Global getInstance() {
         return global;
-    }
-
-    /**
-     * 获取前端根路径
-     * @author Hacra
-     * @date 2019-03-04 19:24
-     */
-    public static String getDefaultPath() {
-        return DEFAULT_PATH;
-    }
-
-    /**
-     * 获取管理根路径
-     * @author Hacra
-     * @date 2019-03-04 19:24
-     */
-    public static String getManagePath() {
-        return MANAGE_PATH;
     }
 }

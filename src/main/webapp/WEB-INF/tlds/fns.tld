@@ -11,22 +11,6 @@
     <short-name>fns</short-name>
     <uri>http://java.sun.com/jsp/jstl/functionss</uri>
 
-    <!-- 系统相关 -->
-    <function>
-        <description>获取前端根路径</description>
-        <name>getDefaultPath</name>
-        <function-class>com.hacra.nclms.common.config.Global</function-class>
-        <function-signature>java.lang.String getDefaultPath()</function-signature>
-        <example>${fns:getDefaultPath()}</example>
-    </function>
-    <function>
-        <description>获取管理根路径</description>
-        <name>getManagePath</name>
-        <function-class>com.hacra.nclms.common.config.Global</function-class>
-        <function-signature>java.lang.String getManagePath()</function-signature>
-        <example>${fns:getManagePathR()}</example>
-    </function>
-
     <!-- 日期相关 -->
     <function>
         <description>将日期转为字符串</description>
