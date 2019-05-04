@@ -133,4 +133,10 @@
             nextval("express")
         FROM dual
     </select>
+
+    <select id="getCode" resultType="String">
+        SELECT
+            IFNULL(MAX(CONVERT(SUBSTRING(CODE, 9, 4), SIGNED)), 0)+1
+        FROM express
+    </select>
 </mapper>

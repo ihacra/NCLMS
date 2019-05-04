@@ -23,17 +23,6 @@ public abstract class BaseService<D extends BaseDao<T>, T extends BaseEntity<T>>
     /**
      * 获取单条数据
      * @author Hacra
-     * @date 2019-03-02 18:33
-     * @param id id
-     * @return T
-     */
-    public T get(String id) {
-        return dao.get(id);
-    }
-
-    /**
-     * 获取单条数据
-     * @author Hacra
      * @date 2019-03-02 18:35
      * @param entity entity
      * @return T

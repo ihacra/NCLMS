@@ -15,4 +15,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class FranchiseService extends BaseService<FranchiseDao, Franchise> {
 
+    /**
+     * 通过id获取数据
+     * @author Hacra
+     * @date 2019-05-03 17:50
+     */
+    public Franchise get(String id) {
+        return super.get(new Franchise(id));
+    }
 }

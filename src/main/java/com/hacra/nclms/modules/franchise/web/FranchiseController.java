@@ -22,10 +22,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping(value = "/franchise")
 public class FranchiseController extends BaseController {
 
-    private FranchiseService franchiseService;
+    private final FranchiseService franchiseService;
 
     @Autowired
-    public void setFranchiseService(FranchiseService franchiseService) {
+    public FranchiseController(FranchiseService franchiseService) {
         this.franchiseService = franchiseService;
     }
 

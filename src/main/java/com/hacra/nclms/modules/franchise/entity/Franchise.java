@@ -25,6 +25,10 @@ public class Franchise extends BaseEntity<Franchise> {
         super();
     }
 
+    public Franchise(String id) {
+        super(id);
+    }
+
     public String getName() {
         return name;
     }

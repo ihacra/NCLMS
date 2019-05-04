@@ -12,7 +12,7 @@
             <div style="background: url(https://www.zto.com/imgs/index/index_icon1_1.png) no-repeat;">
                 <img src="https://www.zto.com/imgs/index/index_icon1_2.png" alt style="position:absolute;top:10px;left:17px"/>
             </div>
-            <span>单号查询</span>
+            <span>快递查询</span>
         </a>
         <a class="item-a" href="${ctx}/express/form">
             <div style="background: url(https://www.zto.com/imgs/index/index_icon2_1.png) no-repeat;">

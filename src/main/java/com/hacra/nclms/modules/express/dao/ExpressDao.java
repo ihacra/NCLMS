@@ -12,4 +12,11 @@ import com.hacra.nclms.modules.express.entity.Express;
  */
 public interface ExpressDao extends BaseDao<Express> {
 
+    /**
+     * 获取快递单号的下一编号
+     * @author Hacra
+     * @date 2019-05-03 17:07
+     * @return String
+     */
+    String getCode();
 }

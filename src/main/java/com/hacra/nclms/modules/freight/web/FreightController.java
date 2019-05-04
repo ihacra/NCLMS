@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 /**
  * 运费查询
  *
@@ -21,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(value = "/freight")
 public class FreightController extends BaseController {
 
-    private final FreightService freightService;
+    private FreightService freightService;
 
     @Autowired
     public FreightController(FreightService freightService) {

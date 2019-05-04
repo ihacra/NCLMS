@@ -36,8 +36,8 @@
         <c:if test="${freight.price > 0}">
             <div class="control-group input-daterange" data-toggle="datepicker">
                 <label class="control-label">预计运费：</label>
-                <label style="color: #d72708">
-                    <fmt:formatNumber value="${freight.price}" pattern="0.00"/>元
+                <label class="control-label" style="width: auto; color: #d72708">
+                    &nbsp;<fmt:formatNumber value="${freight.price}" pattern="0.00"/>元
                 </label>
             </div>
         </c:if>

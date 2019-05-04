@@ -1,5 +1,7 @@
 package com.hacra.nclms.common.base;
 
+import org.apache.ibatis.annotations.Param;
+
 import java.util.List;
 
 /**
@@ -18,7 +20,7 @@ public interface BaseDao<T extends BaseEntity<T>> {
      * @param id id
      * @return T
      **/
-    T get(String id);
+    T get(@Param("id")String id);
 
     /**
      * 获取单条数据
