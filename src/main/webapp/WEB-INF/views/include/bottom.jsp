@@ -38,6 +38,6 @@
 </div>
 <div class="footerbottom">
     <div class="fixedWid">
-        <p>© 2019-2019 Hacra <a href="https://github.com/ihacra/nclms">Graduation project</a></p>
+        <p>Copyright © 2019-2019 NCLMS - Powered By Hacra <a href="https://github.com/ihacra/nclms">Graduation project</a></p>
     </div>
 </div>

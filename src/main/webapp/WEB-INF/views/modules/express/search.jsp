@@ -6,19 +6,22 @@
 </head>
 <body>
 <form:form id="inputForm" modelAttribute="express" action="${ctx}/express/search" method="post" cssClass="sui-form form-horizontal sui-validate">
-    <form:hidden path="id"/>
     <div class="main-con">
         <br/><br/>
         <div class="control-group">
-            <label for="code" class="control-label">快递单号：</label>
+            <label for="code" class="control-label req">快递单号：</label>
             <div class="controls">
                 <form:input path="code" maxlength="20" data-rules="required"/>&nbsp;&nbsp;&nbsp;&nbsp;
                 <button id="searchBtn" type="submit" class="sui-btn btn-primary">查询</button>
             </div>
         </div>
         <hr style="margin-right: 30px;">
+        <sys:message content="${message}" hide="true"/>
         <div class="control-group">
-            <div class="controls">快递单号：${express.code}</div>
+            <div class="controls">
+                支付金额：
+                <c:if test="${express.price > 0}">${express.price}元</c:if>
+            </div>
         </div>
         <div class="control-group">
             <div class="controls">寄件时间：<fmt:formatDate value="${express.orderTime}" pattern="yyyy-MM-dd HH:mm:ss"/></div>
@@ -48,12 +51,6 @@
             <div class="controls">
                 物品重量：
                 <c:if test="${express.goodsWeight > 0}">${express.goodsWeight}KG</c:if>
-            </div>
-        </div>
-        <div class="control-group">
-            <div class="controls">
-                支付金额：
-                <c:if test="${express.price > 0}">${express.price}元</c:if>
             </div>
         </div>
         <div class="control-group">

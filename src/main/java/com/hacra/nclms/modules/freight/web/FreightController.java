@@ -1,7 +1,9 @@
 package com.hacra.nclms.modules.freight.web;
 
 import com.hacra.nclms.common.base.BaseController;
+import com.hacra.nclms.common.config.Global;
 import com.hacra.nclms.common.utils.DateUtils;
+import com.hacra.nclms.common.utils.LoginUtils;
 import com.hacra.nclms.common.utils.StringUtils;
 import com.hacra.nclms.modules.freight.entity.Freight;
 import com.hacra.nclms.modules.freight.service.FreightService;
@@ -9,6 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * 运费查询
  *
@@ -20,7 +25,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(value = "/freight")
 public class FreightController extends BaseController {
 
-    private FreightService freightService;
+    private final FreightService freightService;
 
     @Autowired
     public FreightController(FreightService freightService) {
@@ -33,7 +38,11 @@ public class FreightController extends BaseController {
      * @date 2019-05-01 16:27
      */
     @RequestMapping(value = {"search", ""})
-    public String search(Freight freight, Model model) {
+    public String search(Freight freight, Model model, HttpServletRequest request) {
+        String view = LoginUtils.validate(Global.USER_TYPE_NORMAL, request);
+        if (StringUtils.isNotBlank(view)) {
+            return view;
+        }
         if (StringUtils.isNotBlank(freight.getSenderAddress())
                 && StringUtils.isNotBlank(freight.getConsigneeAddress())) {
             freight = freightService.count(freight);

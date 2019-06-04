@@ -9,16 +9,18 @@
     <form:hidden path="id"/>
     <div class="main-con">
         <br/>
-        <div class="sui-msg msg-block msg-large msg-success">
-            <div class="msg-con">快递订单提交成功</div>
-            <s class="msg-icon"></s>
-        </div><br/>
-        <div class="control-group">
-            <div class="controls">快递单号：${express.code}</div>
-        </div>
-        <div class="control-group">
-            <div class="controls">寄件时间：<fmt:formatDate value="${express.orderTime}" pattern="yyyy-MM-dd HH:mm:ss"/></div>
-        </div>
+        <sys:message content="${message}"/>
+        <c:if test="${not empty express.code}">
+            <div class="control-group">
+                <div class="controls">支付金额：<fmt:formatNumber value="${express.price}" pattern="0.00"/>元</div>
+            </div>
+            <div class="control-group">
+                <div class="controls">快递单号：${express.code}</div>
+            </div>
+            <div class="control-group">
+                <div class="controls">寄件时间：<fmt:formatDate value="${express.orderTime}" pattern="yyyy-MM-dd HH:mm:ss"/></div>
+            </div>
+        </c:if>
         <div class="control-group">
             <div class="controls">发件人姓名：${express.senderName}</div>
         </div>
@@ -42,9 +44,6 @@
         </div>
         <div class="control-group">
             <div class="controls">物品重量：${express.goodsWeight}KG</div>
-        </div>
-        <div class="control-group">
-            <div class="controls">支付金额：<fmt:formatNumber value="${express.price}" pattern="0.00"/>元</div>
         </div>
         <div class="control-group">
             <div class="controls">备注信息：${express.goodsRemarks}</div>

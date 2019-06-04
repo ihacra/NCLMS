@@ -5,11 +5,11 @@
 
 <link rel="icon" type="image/jpg" href="${ctx}/image/sys/icon.jpg" sizes="32x32"/>
 <link rel="shortcut icon" type="image/jpg" href="${ctx}/image/sys/icon.jpg"/>
-
 <link rel="stylesheet" type="text/css" charset="utf-8" href="${ctx}/static/sui/sui-1.5.1.min.css"/>
 <link rel="stylesheet" type="text/css" charset="utf-8" href="${ctx}/static/sui/sui-append-1.5.1.min.css"/>
+<!--<link href="http://g.alicdn.com/sj/dpl/1.5.1/css/sui.min.css" rel="stylesheet"> 已联网 -->
 <link rel="stylesheet" type="text/css" href="${ctx}/static/custom/custom-1.0.0.css"/>
-
 <script type="text/javascript" src="${ctx}/static/jquery/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="${ctx}/static/sui/sui-1.5.1.min.js"></script>
+<!-- <script type="text/javascript" src="${ctx}/static/sui/sui-1.5.1.min.js"></script> 未联网 -->
+<script type="text/javascript" src="http://g.alicdn.com/sj/dpl/1.5.1/js/sui.min.js"></script><!-- 已联网 -->
 <script type="text/javascript" src="${ctx}/static/custom/custom-1.0.0.js"></script>

@@ -6,7 +6,7 @@
 </head>
 <body>
 <img src="${ctx}/image/sys/image.jpg" class="bg-img" alt><br/><br/>
-<div class="control-group" style="margin-top: 500px;">
+<div class="control-group" style="margin-top: 400px;">
     <div class="controls">
         <p class="sui-text-large"><b>公司简介</b></p>
         自成立以来，始终专注于服务质量的提升，持续加强基础建设，积极研发和引进具有高科技含量的信息技术与设备以提升作业自动化水平，

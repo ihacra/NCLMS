@@ -12,6 +12,8 @@ import com.hacra.nclms.common.base.BaseEntity;
 public class Franchise extends BaseEntity<Franchise> {
 
     private static final long serialVersionUID = 1L;
+    private String userId;
+    private String userName;
     private String name;
     private String address;
     private String mobile;
@@ -20,6 +22,7 @@ public class Franchise extends BaseEntity<Franchise> {
     private String area;
     private String customer;
     private String quantity;
+    private String status;
 
     public Franchise() {
         super();
@@ -27,6 +30,22 @@ public class Franchise extends BaseEntity<Franchise> {
 
     public Franchise(String id) {
         super(id);
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getName() {
@@ -91,5 +110,13 @@ public class Franchise extends BaseEntity<Franchise> {
 
     public void setQuantity(String quantity) {
         this.quantity = quantity;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

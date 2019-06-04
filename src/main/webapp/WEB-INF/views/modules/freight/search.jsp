@@ -11,13 +11,13 @@
         <div class="control-group">
             <label for="senderAddress" class="control-label">寄件地址：</label>
             <div class="controls">
-                <form:input path="senderAddress" maxlength="32" placeholder="请输入寄件地址" class="input-xxlarge" data-rules="required"/>
+                <form:input path="senderAddress" maxlength="32" placeholder="请输入寄件地址" class="input-xlarge" data-rules="required"/>
             </div>
         </div>
         <div class="control-group">
             <label for="consigneeAddress" class="control-label">收件地址：</label>
             <div class="controls">
-                <form:input path="consigneeAddress" maxlength="32" placeholder="请输入收件地址" class="input-xxlarge" data-rules="required"/>
+                <form:input path="consigneeAddress" maxlength="32" placeholder="请输入收件地址" class="input-xlarge" data-rules="required"/>
             </div>
         </div>
         <div class="control-group">
@@ -36,8 +36,8 @@
         <c:if test="${freight.price > 0}">
             <div class="control-group input-daterange" data-toggle="datepicker">
                 <label class="control-label">预计运费：</label>
-                <label class="control-label" style="width: auto; color: #d72708">
-                    &nbsp;<fmt:formatNumber value="${freight.price}" pattern="0.00"/>元
+                <label class="control-label" style="width: auto">
+                    &nbsp;<span style="color: rgba(224,23,18,0.86);font-size: 18px"><fmt:formatNumber value="${freight.price}" pattern="0.00"/></span>元
                 </label>
             </div>
         </c:if>

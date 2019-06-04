@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hacra.nclms.modules.userAdmin.dao.UserAdminDao">
+
+    <sql id="userColumns">
+        a.id AS "id",
+        a.name AS "name",
+        a.password AS "password",
+        a.nick AS "nick",
+        a.gender AS "gender",
+        a.mail AS "mail",
+        a.birth AS "birth",
+        a.mobile AS "mobile",
+        a.address AS "address",
+        a.type AS "type",
+        a.create_date AS "createDate",
+        a.update_date AS "updateDate",
+        a.remarks AS "remarks",
+        a.del_flag AS "delFlag"
+    </sql>
+
+    <sql id="userJoins">
+
+    </sql>
+
+    <select id="get" resultType="UserAdmin">
+        SELECT
+        <include refid="userColumns"/>
+        FROM user a
+        <include refid="userJoins"/>
+        WHERE a.id = #{id}
+    </select>
+
+    <select id="getAllList" resultType="UserAdmin">
+        SELECT
+        <include refid="userColumns"/>
+        FROM user a
+        <include refid="userJoins"/>
+        WHERE a.del_flag = #{DEL_FLAG_NORMAL}
+        <choose>
+            <when test="orderBy != null and orderBy != ''">
+                ORDER BY ${orderBy}
+            </when>
+            <otherwise>
+                ORDER BY a.update_date DESC
+            </otherwise>
+        </choose>
+    </select>
+
+    <insert id="insert">
+        INSERT INTO user (
+            id,
+            name,
+            password,
+            nick,
+            gender,
+            mail,
+            birth,
+            mobile,
+            address,
+            type,
+            create_date,
+            update_date,
+            remarks,
+            del_flag
+        ) VALUES (
+            #{id},
+            #{name},
+            #{password},
+            #{nick},
+            #{gender},
+            #{mail},
+            #{birth},
+            #{mobile},
+            #{address},
+            #{type},
+            #{createDate},
+            #{updateDate},
+            #{remarks},
+            #{delFlag}
+        )
+    </insert>
+
+    <update id="update">
+        UPDATE user SET
+            name = #{name},
+            password = #{password},
+            nick = #{nick},
+            gender = #{gender},
+            mail = #{mail},
+            birth = #{birth},
+            mobile = #{mobile},
+            address = #{address},
+            type = #{type},
+            create_date = #{createDate},
+            update_date = #{updateDate},
+            remarks = #{remarks},
+            del_flag = #{delFlag}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete">
+        UPDATE user SET
+            del_flag = #{DEL_FLAG_DELETE},
+            update_date = #{updateDate}
+        WHERE id = #{id}
+    </delete>
+
+    <select id="getNextId" resultType="String">
+        SELECT
+            nextval("user")
+        FROM dual
+    </select>
+</mapper>

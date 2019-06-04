@@ -11,6 +11,9 @@ public class Global {
 
     private static Global global = new Global();
 
+    public static String USER_TYPE_ADMIN =  "管理员";
+    public static String USER_TYPE_NORMAL = "普通用户";
+
     /**
      * 获取当前对象实例
      * @author Hacra

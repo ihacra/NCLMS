@@ -11,7 +11,6 @@
     <short-name>fns</short-name>
     <uri>http://java.sun.com/jsp/jstl/functionss</uri>
 
-    <!-- 日期相关 -->
     <function>
         <description>将日期转为字符串</description>
         <name>formatDate</name>

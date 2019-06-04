@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hacra.nclms.modules.franchiseAdmin.dao.FranchiseAdminDao">
+
+    <sql id="franchiseColumns">
+        a.id AS "id",
+        a.user_id AS "userId",
+        a.user_name AS "userName",
+        a.name AS "name",
+        a.address AS "address",
+        a.mobile AS "mobile",
+        a.experience AS "experience",
+        a.amount AS "amount",
+        a.area AS "area",
+        a.customer AS "customer",
+        a.quantity AS "quantity",
+        a.status AS "status",
+        a.create_date AS "createDate",
+        a.update_date AS "updateDate",
+        a.remarks AS "remarks",
+        a.del_flag AS "delFlag"
+    </sql>
+
+    <sql id="franchiseJoins">
+
+    </sql>
+
+    <select id="get" resultType="FranchiseAdmin">
+        SELECT
+        <include refid="franchiseColumns"/>
+        FROM franchise a
+        <include refid="franchiseJoins"/>
+        WHERE a.id = #{id}
+    </select>
+
+    <select id="getAllList" resultType="FranchiseAdmin">
+        SELECT
+        <include refid="franchiseColumns"/>
+        FROM franchise a
+        <include refid="franchiseJoins"/>
+        WHERE a.del_flag = #{DEL_FLAG_NORMAL}
+        <if test="userId != null and userId != ''">
+            AND a.user_id = #{userId}
+        </if>
+        <choose>
+            <when test="orderBy != null and orderBy != ''">
+                ORDER BY ${orderBy}
+            </when>
+            <otherwise>
+                ORDER BY INSTR('驳回、通过', a.status), a.create_date DESC
+            </otherwise>
+        </choose>
+    </select>
+
+    <insert id="insert">
+        INSERT INTO franchise (
+            id,
+            user_id,
+            user_name,
+            name,
+            address,
+            mobile,
+            experience,
+            amount,
+            area,
+            customer,
+            quantity,
+            status,
+            create_date,
+            update_date,
+            remarks,
+            del_flag
+        ) VALUES (
+            #{id},
+            #{userId},
+            #{userName},
+            #{name},
+            #{address},
+            #{mobile},
+            #{experience},
+            #{amount},
+            #{area},
+            #{customer},
+            #{quantity},
+            #{status},
+            #{createDate},
+            #{updateDate},
+            #{remarks},
+            #{delFlag}
+        )
+    </insert>
+
+    <update id="update">
+        UPDATE franchise SET
+            user_id = #{userId},
+            user_name = #{userName},
+            name = #{name},
+            address = #{address},
+            mobile = #{mobile},
+            experience = #{experience},
+            amount = #{amount},
+            area = #{area},
+            customer = #{customer},
+            quantity = #{quantity},
+            status = #{status},
+            create_date = #{createDate},
+            update_date = #{updateDate},
+            remarks = #{remarks},
+            del_flag = #{delFlag}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete">
+        UPDATE franchise SET
+            del_flag = #{DEL_FLAG_DELETE},
+            update_date = #{updateDate}
+        WHERE id = #{id}
+    </delete>
+
+    <select id="getNextId" resultType="String">
+        SELECT
+            nextval("franchise")
+        FROM dual
+    </select>
+</mapper>

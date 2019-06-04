@@ -14,6 +14,8 @@ import java.util.Date;
 public class Express extends BaseEntity<Express> {
 
     private static final long serialVersionUID = 1L;
+    private String userId;
+    private String userName;
     private String senderName;
     private String senderAddress;
     private String senderMobile;
@@ -34,6 +36,22 @@ public class Express extends BaseEntity<Express> {
 
     public Express(String id) {
         super(id);
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getSenderName() {

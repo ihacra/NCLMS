@@ -85,7 +85,9 @@ public class DateUtils extends org.apache.commons.lang.time.DateUtils {
      * @return java.lang.String
      */
     public static String formatDate(Date date, String pattern) {
-        if (date == null) return null;
+        if (date == null) {
+            return null;
+        }
         DateFormat format = new SimpleDateFormat(pattern);
         return format.format(date);
     }

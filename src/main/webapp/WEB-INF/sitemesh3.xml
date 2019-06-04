@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemesh>
-    <!-- 默认母版 -->
+    <!-- 装饰页面 -->
     <mapping path="/*" decorator="/WEB-INF/views/layouts/default.jsp"/>
+    <mapping path="/admin/*" decorator="/WEB-INF/views/layouts/admin.jsp"/>
+    <!-- 不被装饰 -->
+    <mapping path="/login/*" exclue="true"/>
+    <mapping path="/register/*" exclue="true"/>
 </sitemesh>

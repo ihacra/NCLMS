@@ -4,12 +4,15 @@
 
     <sql id="franchiseColumns">
         a.id AS "id",
+        a.user_id AS "userId",
+        a.user_name AS "userName",
         a.name AS "name",
         a.address AS "address",
         a.mobile AS "mobile",
         a.experience AS "experience",
         a.amount AS "amount",
         a.area AS "area",
+        a.status AS "status",
         a.customer AS "customer",
         a.quantity AS "quantity",
         a.create_date AS "createDate",
@@ -36,12 +39,15 @@
         FROM franchise a
         <include refid="franchiseJoins"/>
         WHERE a.del_flag = #{DEL_FLAG_NORMAL}
+        <if test="userId != null and userId != ''">
+            AND a.user_id = #{userId}
+        </if>
         <choose>
             <when test="orderBy != null and orderBy != ''">
                 ORDER BY ${orderBy}
             </when>
             <otherwise>
-                ORDER BY a.update_date DESC
+                ORDER BY INSTR('驳回、通过', a.status), a.create_date DESC
             </otherwise>
         </choose>
     </select>
@@ -49,6 +55,8 @@
     <insert id="insert">
         INSERT INTO franchise (
             id,
+            user_id,
+            user_name,
             name,
             address,
             mobile,
@@ -57,12 +65,15 @@
             area,
             customer,
             quantity,
+            status,
             create_date,
             update_date,
             remarks,
             del_flag
         ) VALUES (
             #{id},
+            #{userId},
+            #{userName},
             #{name},
             #{address},
             #{mobile},
@@ -71,6 +82,7 @@
             #{area},
             #{customer},
             #{quantity},
+            #{status},
             #{createDate},
             #{updateDate},
             #{remarks},
@@ -80,6 +92,8 @@
 
     <update id="update">
         UPDATE franchise SET
+            user_id = #{userId},
+            user_name = #{userName},
             name = #{name},
             address = #{address},
             mobile = #{mobile},
@@ -88,6 +102,7 @@
             area = #{area},
             customer = #{customer},
             quantity = #{quantity},
+            status = #{status},
             create_date = #{createDate},
             update_date = #{updateDate},
             remarks = #{remarks},

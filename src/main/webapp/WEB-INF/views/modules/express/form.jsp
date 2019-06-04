@@ -5,6 +5,20 @@
     <title>在线寄件</title>
     <script type="text/javascript">
         $(document).ready(function() {
+            var userId = "${sessionScope.userid}";
+            if (userId === "") {
+                $.confirm({
+                    body: '在线寄件需进行用户登录，是否前往登录？',
+                    backdrop: true,
+                    bgcolor: 'none',
+                    okHide: function(){
+                        $(location).attr('href', '${ctx}/login/login');
+                    },
+                    cancelHide: function(){
+                        $(location).attr('href', '${ctx}/index/index');
+                    }
+                });
+            }
             $("#submitBtn").click(function() {
                 $.confirm({
                     body: '是否提交快递订单信息？',
@@ -22,54 +36,54 @@
     </script>
 </head>
 <body>
-<form:form id="inputForm" modelAttribute="express" action="${ctx}/express/save" method="post" cssClass="sui-form form-horizontal sui-validate">
+<form:form id="inputForm" modelAttribute="express" action="${ctx}/express/pay" method="post" cssClass="sui-form form-horizontal sui-validate">
     <form:hidden path="id"/>
     <div class="main-con">
         <br/><br/>
         <div class="control-group">
-            <label for="senderName" class="control-label">发件人姓名：</label>
+            <label for="senderName" class="control-label req">发件人姓名：</label>
             <div class="controls">
                 <form:input path="senderName" maxlength="32" placeholder="请输入发件人姓名" data-rules="required"/>
             </div>
         </div>
         <div class="control-group">
-            <label for="senderMobile" class="control-label">联系方式：</label>
+            <label for="senderMobile" class="control-label req">联系方式：</label>
             <div class="controls">
                 <form:input path="senderMobile" maxlength="20" placeholder="请输入联系手机号" data-rules="required|mobile"/>
             </div>
         </div>
         <div class="control-group">
-            <label for="senderAddress" class="control-label">详细地址：</label>
+            <label for="senderAddress" class="control-label req">详细地址：</label>
             <div class="controls">
-                <form:input path="senderAddress" maxlength="96" placeholder="请输入详细地址" class="input-xxlarge" data-rules="required"/>
+                <form:input path="senderAddress" maxlength="96" placeholder="请输入详细地址" class="input-xlarge" data-rules="required"/>
             </div>
         </div>
         <div class="control-group">
-            <label for="consigneeName" class="control-label">收件人姓名：</label>
+            <label for="consigneeName" class="control-label req">收件人姓名：</label>
             <div class="controls">
                 <form:input path="consigneeName" maxlength="32" placeholder="请输入收件人姓名" data-rules="required"/>
             </div>
         </div>
         <div class="control-group">
-            <label for="consigneeMobile" class="control-label">联系方式：</label>
+            <label for="consigneeMobile" class="control-label req">联系方式：</label>
             <div class="controls">
                 <form:input path="consigneeMobile" maxlength="20" placeholder="请输入联系手机号" data-rules="required|mobile"/>
             </div>
         </div>
         <div class="control-group">
-            <label for="consigneeAddress" class="control-label">详细地址：</label>
+            <label for="consigneeAddress" class="control-label req">详细地址：</label>
             <div class="controls">
-                <form:input path="consigneeAddress" maxlength="96" placeholder="请输入详细地址" class="input-xxlarge" data-rules="required"/>
+                <form:input path="consigneeAddress" maxlength="96" placeholder="请输入详细地址" class="input-xlarge" data-rules="required"/>
             </div>
         </div>
         <div class="control-group">
-            <label for="goodsName" class="control-label">物品名称：</label>
+            <label for="goodsName" class="control-label req">物品名称：</label>
             <div class="controls">
                 <form:input path="goodsName" maxlength="32" placeholder="请输入物品名称" data-rules="required"/>
             </div>
         </div>
         <div class="control-group">
-            <label for="goodsWeight" class="control-label">物品重量：</label>
+            <label for="goodsWeight" class="control-label req">物品重量：</label>
             <div class="controls">
                 <form:input path="goodsWeight" maxlength="2" placeholder="请输入物品重量" data-rules="required|number|lt=20" style="margin-right:-30px"/>
                 <span style="color:#999;margin-right:13px">KG</span>
@@ -78,7 +92,7 @@
         <div class="control-group">
             <label for="goodsRemarks" class="control-label">备注信息：</label>
             <div class="controls">
-                <form:input path="goodsRemarks" maxlength="96" placeholder="请输入备注信息" class="input-xxlarge" data-rules="required"/>
+                <form:input path="goodsRemarks" maxlength="96" placeholder="请输入备注信息" class="input-xxlarge"/>
             </div>
         </div>
         <div class="control-group">

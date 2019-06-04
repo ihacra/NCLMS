@@ -5,6 +5,20 @@
     <title>加盟合作</title>
     <script type="text/javascript">
         $(document).ready(function() {
+            var userId = "${sessionScope.userid}";
+            if (userId === "") {
+                $.confirm({
+                    body: '加盟合作需进行用户登录，是否前往登录？',
+                    backdrop: true,
+                    bgcolor: 'none',
+                    okHide: function(){
+                        $(location).attr('href', '${ctx}/login/login');
+                    },
+                    cancelHide: function(){
+                        $(location).attr('href', '${ctx}/index/index');
+                    }
+                });
+            }
             $("#submitBtn").click(function() {
                 $.confirm({
                     body: '是否确认提交加盟信息？',
@@ -27,7 +41,7 @@
     <div class="main-con">
         <br/><br/>
         <div class="control-group">
-            <label for="name" class="control-label">姓名：</label>
+            <label for="name" class="control-label">加盟人姓名：</label>
             <div class="controls">
                 <form:input path="name" maxlength="32" placeholder="请输入姓名" data-rules="required"/>
             </div>
@@ -35,7 +49,7 @@
         <div class="control-group">
             <label for="address" class="control-label">户籍所在地：</label>
             <div class="controls">
-                <form:input path="address" maxlength="96" placeholder="请输入户籍所在地" cssClass="input-xxlarge" data-rules="required"/>
+                <form:input path="address" maxlength="96" placeholder="请输入户籍所在地" cssClass="input-xlarge" data-rules="required"/>
             </div>
         </div>
         <div class="control-group">
@@ -75,7 +89,7 @@
         <div class="control-group">
             <label for="area" class="control-label">加盟地区：</label>
             <div class="controls">
-                <form:input path="area" maxlength="96" placeholder="请输入加盟地区" cssClass="input-xxlarge" data-rules="required"/>
+                <form:input path="area" maxlength="96" placeholder="请输入加盟地区" cssClass="input-xlarge" data-rules="required"/>
             </div>
         </div>
         <div class="control-group">

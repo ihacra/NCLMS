@@ -4,6 +4,8 @@
 
     <sql id="expressColumns">
         a.id AS "id",
+        a.user_id AS "userID",
+        a.user_name AS "userName",
         a.sender_name AS "senderName",
         a.sender_address AS "senderAddress",
         a.sender_mobile AS "senderMobile",
@@ -14,7 +16,6 @@
         a.goods_remarks AS "goodsRemarks",
         a.goods_weight AS "goodsWeight",
         a.code AS "code",
-        a.status AS "status",
         a.order_time AS "orderTime",
         a.price AS "price",
         a.create_date AS "createDate",
@@ -47,12 +48,15 @@
         FROM express a
         <include refid="expressJoins"/>
         WHERE a.del_flag = #{DEL_FLAG_NORMAL}
+        <if test="userId != null and userId !=''">
+            AND a.user_id = #{userId}
+        </if>
         <choose>
             <when test="orderBy != null and orderBy != ''">
                 ORDER BY ${orderBy}
             </when>
             <otherwise>
-                ORDER BY a.update_date DESC
+                ORDER BY a.create_date DESC
             </otherwise>
         </choose>
     </select>
@@ -60,6 +64,8 @@
     <insert id="insert">
         INSERT INTO express (
             id,
+            user_id,
+            user_name,
             sender_name,
             sender_address,
             sender_mobile,
@@ -70,7 +76,6 @@
             goods_remarks,
             goods_weight,
             code,
-            status,
             order_time,
             price,
             create_date,
@@ -79,6 +84,8 @@
             del_flag
         ) VALUES (
             #{id},
+            #{userId},
+            #{userName},
             #{senderName},
             #{senderAddress},
             #{senderMobile},
@@ -89,7 +96,6 @@
             #{goodsRemarks},
             #{goodsWeight},
             #{code},
-            #{status},
             #{orderTime},
             #{price},
             #{createDate},
@@ -101,6 +107,8 @@
 
     <update id="update">
         UPDATE express SET
+            user_id = #{userId},
+            user_name = #{userName},
             sender_name = #{senderName},
             sender_address = #{senderAddress},
             sender_mobile = #{senderMobile},
@@ -111,7 +119,6 @@
             goods_remarks = #{goodsRemarks},
             goods_weight = #{goodsWeight},
             code = #{code},
-            status = #{status},
             order_time = #{orderTime},
             price = #{price},
             create_date = #{createDate},

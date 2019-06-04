@@ -9,12 +9,9 @@
     <form:hidden path="id"/>
     <div class="main-con">
         <br/>
-        <div class="sui-msg msg-block msg-large msg-success" style="margin-right: 30px;">
-            <div class="msg-con">加盟信息提交成功</div>
-            <s class="msg-icon"></s>
-        </div><br/>
+        <sys:message content="${message}"/>
         <div class="control-group">
-            <div class="controls">姓名：${franchise.name}</div>
+            <div class="controls">加盟人姓名：${franchise.name}</div>
         </div>
         <div class="control-group">
             <div class="controls">户籍所在地：${franchise.address}</div>
