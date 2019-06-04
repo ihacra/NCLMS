@@ -59,7 +59,7 @@ public class RegisterController extends BaseController {
      */
     @RequestMapping(value = "save")
     public String save(User user, RedirectAttributes redirectAttributes) {
-        userService.save(user);
+        userService.saveRegister(user);
         redirectAttributes.addFlashAttribute("user", user);
         redirectAttributes.addFlashAttribute("message", "注册成功！");
         return "redirect:/login/login";

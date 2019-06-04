@@ -48,9 +48,7 @@
     </script>
 </head>
 <body>
-<div style="width: 50%; margin-left: 25%">
-    <sys:message content="${message}" hide="true" align="center"/>
-</div>
+<sys:message content="${message}" autoHide="true" fixed="false"/>
 <h1 style="margin: 10px 0">快递列表(${fn:length(expressAdminList)})</h1>
 <table class="sui-table table-bordered list2">
     <thead>

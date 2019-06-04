@@ -1,6 +1,7 @@
 package com.hacra.nclms.modules.user.service;
 
 import com.hacra.nclms.common.base.BaseService;
+import com.hacra.nclms.common.utils.DateUtils;
 import com.hacra.nclms.common.utils.StringUtils;
 import com.hacra.nclms.modules.user.dao.UserDao;
 import com.hacra.nclms.modules.user.entity.User;
@@ -52,6 +53,17 @@ public class UserService extends BaseService<UserDao, User> {
             return u;
         }
         return null;
+    }
+
+    /**
+     * 注册信息
+     * @author Hacra
+     * @date 2019-06-04 16:28
+     */
+    public void saveRegister(User user) {
+        user.setBirth(DateUtils.getDate("yyyy-MM-dd"));
+        user.setGender("男");
+        super.save(user);
     }
 
     /**

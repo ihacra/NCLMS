@@ -16,7 +16,7 @@
             </div>
         </div>
         <hr style="margin-right: 30px;">
-        <sys:message content="${message}" hide="true"/>
+        <sys:message content="${message}" autoHide="true"/>
         <div class="control-group">
             <div class="controls">
                 支付金额：

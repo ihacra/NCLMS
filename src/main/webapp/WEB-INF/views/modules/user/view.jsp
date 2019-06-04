@@ -5,9 +5,7 @@
     <title>个人信息</title>
 </head>
 <body>
-    <div style="width: 50%; margin-left: 25%">
-        <sys:message content="${message}" hide="true" align="center"/>
-    </div>
+    <sys:message content="${message}" autoHide="true" fixed="false"/>
     <h1 style="margin-left: 15%">个人信息</h1>
     <form:form id="inputForm" modelAttribute="user" action="${ctx}/user/save" method="post"
                cssClass="sui-form form-horizontal sui-validate">
@@ -19,7 +17,7 @@
                 <td style="text-align: center">姓名</td>
                 <td><form:input path="name" maxlength="32" placeholder="请输入姓名" data-rules="required"/></td>
                 <td style="text-align: center">昵称</td>
-                <td><form:input path="nick" maxlength="32" placeholder="请输入昵称" data-rules="required"/></td>
+                <td><form:input path="nick" maxlength="32" placeholder="请输入昵称"/></td>
             </tr>
             <tr>
                 <td style="text-align: center">密码</td>

@@ -48,21 +48,19 @@
     </script>
 </head>
 <body>
-<div style="width: 50%; margin-left: 25%">
-    <sys:message content="${message}" hide="true" align="center"/>
-</div>
+<sys:message content="${message}" autoHide="true" fixed="false"/>
 <h1 style="margin: 10px 0">用户管理(${fn:length(userAdminList)})</h1>
 <table class="sui-table table-bordered list2">
     <thead>
     <tr>
         <th style="text-align: center;width: 5%">序号</th>
-        <th style="text-align: center;width: 18%">名称</th>
-        <th style="text-align: center;width: 21%">密码</th>
-        <th style="text-align: center;width: 21%">性别</th>
-        <th style="text-align: center;width: 24%">出生日期</th>
-        <th style="text-align: center;width: 24%">联系方式</th>
-        <th style="text-align: center;width: 24%">居住地址</th>
-        <th style="text-align: center;width: 11%">操作</th>
+        <th style="text-align: center;width: 13%">名称</th>
+        <th style="text-align: center;width: 13%">密码</th>
+        <th style="text-align: center;width: 10%">性别</th>
+        <th style="text-align: center;width: 12%">出生日期</th>
+        <th style="text-align: center;width: 12%">联系方式</th>
+        <th style="text-align: center;width: 23%">居住地址</th>
+        <th style="text-align: center;width: 12%">操作</th>
     </tr>
     </thead>
     <tbody>
@@ -71,10 +69,22 @@
             <td style="text-align: center">${vs.count}</td>
             <td style="text-align: center">${user.name}</td>
             <td style="text-align: center">${user.password}</td>
-            <td style="text-align: center">${user.gender}</td>
-            <td style="text-align: center">${user.birth}</td>
-            <td style="text-align: center">${user.mobile}</td>
-            <td style="text-align: center">${user.address}</td>
+            <td style="text-align: center">
+                <c:if test="${empty user.gender}">未知</c:if>
+                <c:if test="${not empty user.gender}">${user.gender}</c:if>
+            </td>
+            <td style="text-align: center">
+                <c:if test="${empty user.birth}">未知</c:if>
+                <c:if test="${not empty user.birth}">${user.birth}</c:if>
+            </td>
+            <td style="text-align: center">
+                <c:if test="${empty user.mobile}">未知</c:if>
+                <c:if test="${not empty user.mobile}">${user.mobile}</c:if>
+            </td>
+            <td style="text-align: center">
+                <c:if test="${empty user.address}">未知</c:if>
+                <c:if test="${not empty user.address}">${user.address}</c:if>
+            </td>
             <td style="text-align: center">
                 <a href="${ctx}/admin/user/view?id=${user.id}">查看</a>&nbsp;
                 <a href="${ctx}/admin/user/edit?id=${user.id}">修改</a>&nbsp;

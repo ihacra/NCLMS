@@ -13,9 +13,6 @@
     </script>
 </head>
 <body>
-    <div style="width: 400px; margin: 0 auto">
-        <sys:message content="${message}" hide="true" align="center"/>
-    </div>
     <div class="h1-title">
         <a href="${ctx}/index/index">全国连锁物流管理系统</a>
     </div>
@@ -26,6 +23,7 @@
         <form:password path="password" data-rules="required"/>
         <a class="btn-login">登录</a>
         <a class="btn-register" href="${ctx}/register/register">注册</a>
+        <sys:message content="${message}" autoHide="true"/>
     </form:form>
     <div class="bottom-info">Copyright © 2019-2019 NCLMS - Powered By Hacra
         <a href="https://github.com/ihacra/nclms">Graduation project</a>
